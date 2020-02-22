@@ -1,4 +1,5 @@
 package contactDataStructure;
 
-public class MyLinkedList {
+public class MyLinkedList<E> {
+    private
 }
