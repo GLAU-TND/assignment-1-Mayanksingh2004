@@ -14,4 +14,36 @@ public class Person {
         this.contactNumber = contactNumber;
         this.emailAddress = emailAddress;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public MyLinkedList<Long> getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(MyLinkedList<Long> contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 }
