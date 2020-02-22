@@ -64,17 +64,22 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
             temp = temp.getNext();
         }
         System.out.println("]");
-
-    }
-
-    @Override
-    public void sort() {
-
     }
 
     @Override
     public void swap(Node<E> first, Node<E> second, int pre) {
-
+        if (first == head) {
+            Node temp = second.getNext();
+            head = second;
+            second.setNext(first);
+            first.setNext(temp);
+        } else {
+            Node temp = second.getNext();
+            Node previous = getNode(pre);
+            previous.setNext(second);
+            second.setNext(first);
+            first.setNext(temp);
+        }
     }
 
     public Node getNode(int index) {
