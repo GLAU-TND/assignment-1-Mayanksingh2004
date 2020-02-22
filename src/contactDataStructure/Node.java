@@ -4,7 +4,7 @@ public class Node<E> {
     private E data;
     private Node<E> next;
 
-    public Node(E data, Node<E> next) {
+    public Node(Node<E> next, E data) {
         this.data = data;
         this.next = next;
     }
