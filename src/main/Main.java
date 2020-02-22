@@ -1,10 +1,14 @@
 package main;
 
+import contactDataStructure.MyLinkedList;
+import personDefinition.Person;
+
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        MyLinkedList<Person> personMyLinkedList = new MyLinkedList<>();
         boolean loop = false;
         while (loop) {
             System.out.println("Welcome to Mayank's Contact List App\n" +
@@ -14,6 +18,11 @@ public class Main {
                     "Press 4 to delete a contact\n" +
                     "Press 5 to exit program ");
             int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    break;
+            }
         }
     }
 }
