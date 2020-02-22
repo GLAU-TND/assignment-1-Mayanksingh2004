@@ -57,6 +57,13 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
 
     @Override
     public void traverse() {
+        Node temp = head;
+        System.out.print("[");
+        for (int i = 0; i < size; i++) {
+            System.out.print(temp.getData() + (i == size - 1 ? "" : ","));
+            temp = temp.getNext();
+        }
+        System.out.println("]");
 
     }
 
