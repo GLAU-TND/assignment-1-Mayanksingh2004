@@ -76,4 +76,28 @@ public class ContactManager {
         System.out.println("\nEmail Address: " + contact.getEmailAddress() + "\n" +
                 "-------- * -------- * -------- * --------");
     }
+
+    public void searchContact(MyLinkedList person) {
+        MyLinkedList<Person> matchedContact = new MyLinkedList();
+        System.out.println("You could search for a contact from their first names:");
+        String element = scanner.nextLine();
+        int match = 0;
+        for (int i = 0; i < person.getSize(); i++) {
+            Person person1 = (Person) person.getNode(i).getData();
+            if (element.equals(person1.getFirstName())) {
+                match++;
+                matchedContact.insert(person1);
+            }
+        }
+        if (match > 0) {
+            System.out.println(match + " match found!");
+            for (int i = 0; i < matchedContact.getSize(); i++) {
+                Person name = (Person) matchedContact.getNode(i).getData();
+                printContact(name);
+            }
+
+        } else {
+            System.out.println("NO RESULTS FOUND!");
+        }
+    }
 }
