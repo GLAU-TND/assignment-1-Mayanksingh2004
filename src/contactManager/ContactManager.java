@@ -100,4 +100,19 @@ public class ContactManager {
             System.out.println("NO RESULTS FOUND!");
         }
     }
+
+    public void deleteContact(MyLinkedList person) {
+        System.out.println("Here are all your contacts:");
+        int j = 0;
+        for (int i = 0; i < person.getSize(); i++) {
+            Person person1 = (Person) person.getNode(i).getData();
+            System.out.println(++j + ". " + person1.getFirstName() + " " + person1.getLastName());
+        }
+        System.out.print("Press the number against the contact to delete it: ");
+        int choice = Integer.parseInt(scanner.nextLine());
+        Person person2 = (Person) person.getNode(choice - 1).getData();
+        System.out.println(person2.getFirstName() + "'s contact deleted from list!");
+        person.delete(choice - 1);
+
+    }
 }
