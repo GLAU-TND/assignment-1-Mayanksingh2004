@@ -63,7 +63,7 @@ public class ContactManager {
         System.out.println("---Here are all your contacts---");
         int size = person.getSize();
         for (int i = 0; i < size; i++) {
-            Person contact = (Person) person.getNode(i).getData();
+            Person contact = (Person) person.dataAtIndex(i);
             printContact(contact);
         }
     }
@@ -75,10 +75,10 @@ public class ContactManager {
         if (contact.getContactNumber().getSize() > 1) {
             System.out.print("Contact Number(s): ");
             for (int j = 0; j < contact.getContactNumber().getSize(); j++) {
-                System.out.print(contact.getContactNumber().getNode(j).getData() + (j < contact.getContactNumber().getSize() - 1 ? "," : ""));
+                System.out.print(contact.getContactNumber().dataAtIndex(j) + (j < contact.getContactNumber().getSize() - 1 ? "," : ""));
             }
         } else {
-            System.out.print("Contact Number: " + contact.getContactNumber().getNode(0).getData());
+            System.out.print("Contact Number: " + contact.getContactNumber().dataAtIndex(0));
 
         }
         if (contact.getEmailAddress().compareTo("") != 0) {
@@ -93,7 +93,7 @@ public class ContactManager {
         String element = scanner.nextLine();
         int match = 0;
         for (int i = 0; i < person.getSize(); i++) {
-            Person person1 = (Person) person.getNode(i).getData();
+            Person person1 = (Person) person.dataAtIndex(i);
             if (element.equals(person1.getFirstName())) {
                 match++;
                 matchedContact.insert(person1);
@@ -102,7 +102,7 @@ public class ContactManager {
         if (match > 0) {
             System.out.println(match + " match found!");
             for (int i = 0; i < matchedContact.getSize(); i++) {
-                Person name = (Person) matchedContact.getNode(i).getData();
+                Person name = (Person) matchedContact.dataAtIndex(i);
                 printContact(name);
             }
 
@@ -115,12 +115,12 @@ public class ContactManager {
         System.out.println("Here are all your contacts: 5");
         int j = 0;
         for (int i = 0; i < person.getSize(); i++) {
-            Person person1 = (Person) person.getNode(i).getData();
+            Person person1 = (Person) person.dataAtIndex(i);
             System.out.println(++j + ". " + person1.getFirstName() + " " + person1.getLastName());
         }
         System.out.print("Press the number against the contact to delete it: ");
         int choice = Integer.parseInt(scanner.nextLine());
-        Person person2 = (Person) person.getNode(choice - 1).getData();
+        Person person2 = (Person) person.dataAtIndex(choice - 1);
         System.out.println(person2.getFirstName() + "'s contact deleted from list!\n");
         person.delete(choice - 1);
     }

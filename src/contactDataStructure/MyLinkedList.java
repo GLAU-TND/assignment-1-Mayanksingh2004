@@ -31,7 +31,7 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
             addFirst(data);
         } else {
             Node newNode = temp.getNext();
-            temp.setNext(new Node(newNode, data));
+            temp.next = new Node(newNode, data);
         }
         size++;
 
@@ -48,7 +48,7 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
         } else {
             Node temp = getNode(index - 1);
             Node nextNode = getNode(index);
-            temp.setNext(nextNode.getNext());
+            temp.next = nextNode.getNext();
         }
         size--;
     }
@@ -68,14 +68,14 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
         if (first == head) {
             Node temp = second.getNext();
             head = second;
-            second.setNext(first);
-            first.setNext(temp);
+            second.next = first;
+            first.next = temp;
         } else {
             Node temp = second.getNext();
             Node previous = getNode(pre);
-            previous.setNext(second);
-            second.setNext(first);
-            first.setNext(temp);
+            previous.next = second;
+            second.next = first;
+            first.next = temp;
         }
     }
 
@@ -95,12 +95,37 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
         return person;
     }
 
-    public Node getNode(int index) {
+    private Node getNode(int index) {
         Node response = head;
         for (int i = 0; i < index; i++) {
             response = response.getNext();
         }
         return response;
     }
+
+    public E dataAtIndex(int index) {
+        Node<E> temp = getNode(index);
+        return temp.getData();
+    }
+
+    private class Node<E> {
+        private E data;
+        private Node<E> next;
+
+        public Node(Node<E> next, E data) {
+            this.data = data;
+            this.next = next;
+        }
+
+        public E getData() {
+            return data;
+        }
+
+        public Node<E> getNext() {
+            return next;
+        }
+
+    }
+
 }
 
