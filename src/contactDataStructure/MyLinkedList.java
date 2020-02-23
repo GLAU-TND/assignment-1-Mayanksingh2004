@@ -1,13 +1,11 @@
 package contactDataStructure;
 
+import personDefinition.Person;
+
 public class MyLinkedList<E> implements MyLinkedListADT<E> {
 
     private Node<E> head = null;
     private int size = 0;
-
-    public Node<E> getHead() {
-        return head;
-    }
 
     public int getSize() {
         return size;
@@ -66,8 +64,7 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
         System.out.println("]");
     }
 
-    @Override
-    public void swap(Node<E> first, Node<E> second, int pre) {
+    private void swap(Node<E> first, Node<E> second, int pre) {
         if (first == head) {
             Node temp = second.getNext();
             head = second;
@@ -88,5 +85,22 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
             response = response.getNext();
         }
         return response;
+    }
+
+    @Override
+    public MyLinkedList<E> sort(MyLinkedList<E> person) {
+        for (int i = 0; i < person.getSize(); i++) {
+            for (int j = 1; j < person.getSize(); j++) {
+                Node person1 = person.getNode(j - 1);
+                Node person2 = person.getNode(j);
+                Person first = (Person) person1.getData();
+                Person second = (Person) person2.getData();
+                if (first.getFirstName().compareToIgnoreCase(second.getFirstName()) >= 1) {
+                    person.swap(person1, person2, j - 2);
+                }
+            }
+        }
+        return person;
+
     }
 }

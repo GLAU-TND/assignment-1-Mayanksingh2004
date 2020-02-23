@@ -8,6 +8,6 @@ public interface MyLinkedListADT<E> {
 
     void traverse();
 
-    void swap(Node<E> first, Node<E> second, int pre);
+    MyLinkedList<E> sort(MyLinkedList<E> person);
 
 }
