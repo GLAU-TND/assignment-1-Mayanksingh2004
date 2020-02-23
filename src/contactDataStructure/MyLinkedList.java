@@ -79,14 +79,6 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
         }
     }
 
-    public Node getNode(int index) {
-        Node response = head;
-        for (int i = 0; i < index; i++) {
-            response = response.getNext();
-        }
-        return response;
-    }
-
     @Override
     public MyLinkedList<E> sort(MyLinkedList<E> person) {
         for (int i = 0; i < person.getSize(); i++) {
@@ -101,6 +93,14 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
             }
         }
         return person;
+    }
 
+    public Node getNode(int index) {
+        Node response = head;
+        for (int i = 0; i < index; i++) {
+            response = response.getNext();
+        }
+        return response;
     }
 }
+
