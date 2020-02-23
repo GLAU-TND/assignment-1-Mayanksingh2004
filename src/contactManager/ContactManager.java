@@ -50,4 +50,13 @@ public class ContactManager {
         }
         return contact;
     }
+
+    public void viewContact(MyLinkedList person) {
+        System.out.println("---Here are all your contacts---");
+        int size = person.getSize();
+        for (int i = 0; i < size; i++) {
+            Person contact = (Person) person.getNode(i).getData();
+            printContact(contact);
+        }
+    }
 }
