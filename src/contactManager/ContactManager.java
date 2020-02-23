@@ -59,4 +59,21 @@ public class ContactManager {
             printContact(contact);
         }
     }
+
+    private void printContact(Person contact) {
+        System.out.print("-------- * -------- * -------- * --------\n" +
+                "First Name: " + contact.getFirstName() + "\n" +
+                "Last Name: " + contact.getLastName() + "\n");
+        if (contact.getContactNumber().getSize() > 1) {
+            System.out.print("Contact Number(s): ");
+            for (int j = 0; j < contact.getContactNumber().getSize(); j++) {
+                System.out.print(contact.getContactNumber().getNode(j).getData() + (j < contact.getContactNumber().getSize() - 1 ? "," : ""));
+            }
+        } else {
+            System.out.print("Contact Number: " + contact.getContactNumber().getNode(0).getData());
+
+        }
+        System.out.println("\nEmail Address: " + contact.getEmailAddress() + "\n" +
+                "-------- * -------- * -------- * --------");
+    }
 }
