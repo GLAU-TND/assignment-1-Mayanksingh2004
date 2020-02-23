@@ -38,9 +38,13 @@ public class ContactManager {
         }
         System.out.print("Would you like to add email address? (y/n): ");
         char ch = scanner.nextLine().charAt(0);
-        while (ch == 'y') {
+        String emailAddress = "";
+        if (ch == 'y') {
             System.out.print("Email Address: ");
-            String emailAddress = scanner.nextLine();
+            emailAddress = scanner.nextLine();
+        }
+        while (ch == 'y') {
+
             if (input.emailAddress(emailAddress)) {
                 contact = new Person(firstName, lastName, contactNumberList, emailAddress);
                 break;
@@ -79,7 +83,7 @@ public class ContactManager {
 
         }
         if (contact.getEmailAddress().compareTo("") != 0) {
-            System.out.println("\nEmail Address: " + contact.getEmailAddress());
+            System.out.print("\nEmail Address: " + contact.getEmailAddress());
         }
         System.out.println("\n-------- * -------- * -------- * --------");
     }
