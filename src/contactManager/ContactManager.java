@@ -113,10 +113,9 @@ public class ContactManager {
 
     public void deleteContact(MyLinkedList person) {
         System.out.println("Here are all your contacts: 5");
-        int j = 0;
         for (int i = 0; i < person.getSize(); i++) {
             Person person1 = (Person) person.dataAtIndex(i);
-            System.out.println(++j + ". " + person1.getFirstName() + " " + person1.getLastName());
+            System.out.println(i + 1 + ". " + person1.getFirstName() + " " + person1.getLastName());
         }
         System.out.print("Press the number against the contact to delete it: ");
         int choice = Integer.parseInt(scanner.nextLine());
