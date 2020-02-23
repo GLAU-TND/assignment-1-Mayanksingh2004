@@ -36,9 +36,11 @@ public class ContactManager {
             System.out.print("Would you like to add another contact number? (y/n): ");
             choice = (scanner.nextLine()).charAt(0);
         }
-        System.out.print("Email Address: ");
-        String emailAddress = scanner.nextLine();
-        while (true) {
+        System.out.print("Would you like to add email address? (y/n): ");
+        char ch = scanner.nextLine().charAt(0);
+        while (ch == 'y') {
+            System.out.print("Email Address: ");
+            String emailAddress = scanner.nextLine();
             if (input.emailAddress(emailAddress)) {
                 contact = new Person(firstName, lastName, contactNumberList, emailAddress);
                 break;
@@ -47,6 +49,9 @@ public class ContactManager {
                 System.out.print("Email Address: ");
                 emailAddress = scanner.nextLine();
             }
+        }
+        if (ch == 'n') {
+            contact = new Person(firstName, lastName, contactNumberList, "");
         }
         return contact;
     }
@@ -73,8 +78,10 @@ public class ContactManager {
             System.out.print("Contact Number: " + contact.getContactNumber().getNode(0).getData());
 
         }
-        System.out.println("\nEmail Address: " + contact.getEmailAddress() + "\n" +
-                "-------- * -------- * -------- * --------");
+        if (contact.getEmailAddress().compareTo("") != 0) {
+            System.out.println("\nEmail Address: " + contact.getEmailAddress());
+        }
+        System.out.println("\n-------- * -------- * -------- * --------");
     }
 
     public void searchContact(MyLinkedList person) {
@@ -111,7 +118,7 @@ public class ContactManager {
         System.out.print("Press the number against the contact to delete it: ");
         int choice = Integer.parseInt(scanner.nextLine());
         Person person2 = (Person) person.getNode(choice - 1).getData();
-        System.out.println(person2.getFirstName() + "'s contact deleted from list!");
+        System.out.println(person2.getFirstName() + "'s contact deleted from list!\n");
         person.delete(choice - 1);
 
     }
