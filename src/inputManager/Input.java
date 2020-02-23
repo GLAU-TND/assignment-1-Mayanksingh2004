@@ -10,4 +10,12 @@ public class Input {
         Matcher matcher = pattern1.matcher(String.valueOf(number));
         return matcher.matches();
     }
+
+    public boolean emailAddress(String email) {
+        String pattern = "[a-zA-z][a-zA-Z0-9_.]*@[a-zA-z0-9]+([.][a-zA-Z]+)+";
+        Pattern pattern1 = Pattern.compile(pattern);
+        Matcher matcher = pattern1.matcher(email);
+        return matcher.matches();
+
+    }
 }
