@@ -44,10 +44,9 @@ public class ContactManager {
             emailAddress = scanner.nextLine();
         }
         while (ch == 'y') {
-
             if (input.emailAddress(emailAddress)) {
                 contact = new Person(firstName, lastName, contactNumberList, emailAddress);
-                break;
+                ch = 'n';
             } else {
                 System.out.println("Invalid Email address");
                 System.out.print("Email Address: ");
@@ -113,7 +112,7 @@ public class ContactManager {
     }
 
     public void deleteContact(MyLinkedList person) {
-        System.out.println("Here are all your contacts:");
+        System.out.println("Here are all your contacts: 5");
         int j = 0;
         for (int i = 0; i < person.getSize(); i++) {
             Person person1 = (Person) person.getNode(i).getData();
@@ -124,6 +123,5 @@ public class ContactManager {
         Person person2 = (Person) person.getNode(choice - 1).getData();
         System.out.println(person2.getFirstName() + "'s contact deleted from list!\n");
         person.delete(choice - 1);
-
     }
 }
