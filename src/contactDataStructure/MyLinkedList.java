@@ -80,19 +80,19 @@ public class MyLinkedList<E> implements MyLinkedListADT<E> {
     }
 
     @Override
-    public MyLinkedList<E> sort(MyLinkedList<E> person) {
-        for (int i = 0; i < person.getSize(); i++) {
-            for (int j = 1; j < person.getSize(); j++) {
-                Node person1 = person.getNode(j - 1);
-                Node person2 = person.getNode(j);
-                Person first = (Person) person1.getData();
-                Person second = (Person) person2.getData();
+    public MyLinkedList<E> sort(MyLinkedList<E> myLinkedList) {
+        for (int i = 0; i < myLinkedList.getSize(); i++) {
+            for (int j = 1; j < myLinkedList.getSize(); j++) {
+                Node firstNode = myLinkedList.getNode(j - 1);
+                Node secondNode = myLinkedList.getNode(j);
+                Person first = (Person) firstNode.getData();
+                Person second = (Person) secondNode.getData();
                 if (first.getFirstName().compareToIgnoreCase(second.getFirstName()) >= 1) {
-                    person.swap(person1, person2, j - 2);
+                    myLinkedList.swap(firstNode, secondNode, j - 2);
                 }
             }
         }
-        return person;
+        return myLinkedList;
     }
 
     private Node getNode(int index) {

@@ -102,10 +102,9 @@ public class ContactManager {
         if (match > 0) {
             System.out.println(match + " match found!");
             for (int i = 0; i < matchedContact.getSize(); i++) {
-                Person name = (Person) matchedContact.dataAtIndex(i);
+                Person name = matchedContact.dataAtIndex(i);
                 printContact(name);
             }
-
         } else {
             System.out.println("NO RESULTS FOUND!");
         }
